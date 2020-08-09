@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import Form from '../components/Form'
 
 const Table = (props) => {
 
@@ -11,9 +12,10 @@ const Table = (props) => {
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${ props.balance } remaining!
       </h1>
       <div className="table">
+      <Form updateBalance={props.updateBalance}/>
         <div className="stack">
           {
             /* 
@@ -21,7 +23,7 @@ const Table = (props) => {
                and renders an empty plate
                for every element in the array
             */
-            renderPlates([])
+            renderPlates(props.eaten)
           }
         </div>
       </div>
